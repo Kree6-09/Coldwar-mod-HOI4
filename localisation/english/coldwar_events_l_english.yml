@@ -1,0 +1,14 @@
+l_english:
+ coldwar_flavor.1.t: "The Berlin Blockade"
+ coldwar_flavor.1.d: "Soviet forces have cut all land and rail access to West Berlin. The Western Allies must decide how to respond to this test of wills."
+ coldwar_flavor.1.a: "Hold firm"
+ coldwar_flavor.1.b: "Seek a negotiated settlement"
+
+ coldwar_flavor.2.t: "Reaction to the Marshall Plan"
+ coldwar_flavor.2.d: "Billions of dollars in aid are flowing to Western Europe. The plan is already reshaping the continent's politics and economy."
+ coldwar_flavor.2.a: "Publicize the plan's success"
+ coldwar_flavor.2.b: "Keep a low profile"
+
+ coldwar_flavor.3.t: "First Lightning"
+ coldwar_flavor.3.d: "In the steppes of Kazakhstan, the Soviet Union has successfully tested its first atomic device, ending the American nuclear monopoly."
+ coldwar_flavor.3.a: "Celebrate this historic achievement"

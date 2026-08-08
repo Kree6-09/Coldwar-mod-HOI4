@@ -1,0 +1,16 @@
+{
+	"name": "Guerra Fria: 1945-1991",
+	"id": "",
+	"version": "1.0.0",
+	"supported_game_version": "1.14.*",
+	"short_description": "Un mod para Hearts of Iron IV centrado en la Guerra Fria: nuevos arboles de decisiones para USA y la URSS, eventos historicos y un rumbo alternativo tras la Segunda Guerra Mundial.",
+	"tags": [
+		"Alternate History",
+		"Historical",
+		"Milestones"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

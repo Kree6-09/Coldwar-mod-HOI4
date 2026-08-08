@@ -1,0 +1,292 @@
+focus_tree = {
+	id = coldwar_soviet_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = SOV
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	# --- Raiz: el arbol solo se activa tras el fin de la Segunda Guerra Mundial ---
+	focus = {
+		id = SOV_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = coldwar_era_began
+		}
+	}
+
+	# ---------------- Rama: Pacto de Varsovia ----------------
+	focus = {
+		id = SOV_warsaw_pact
+		icon = GFX_goal_generic_united_front
+		x = 6
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = warsaw_pact_formed
+		}
+	}
+
+	focus = {
+		id = SOV_support_dprk
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 4
+		y = 2
+		cost = 10
+		prerequisite = { focus = SOV_warsaw_pact }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = SOV_support_east_germany
+		icon = GFX_goal_generic_position_troops_defense
+		x = 6
+		y = 2
+		cost = 10
+		prerequisite = { focus = SOV_warsaw_pact }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+			set_country_flag = east_germany_supported
+		}
+	}
+
+	focus = {
+		id = SOV_berlin_blockade
+		icon = GFX_goal_generic_construction
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = SOV_warsaw_pact }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.03
+			country_event = { id = coldwar_flavor.1 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = SOV_support_vietnam
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 3
+		y = 3
+		cost = 10
+		prerequisite = { focus = SOV_support_dprk }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = SOV_afghan_intervention
+		icon = GFX_goal_generic_position_troops_defense
+		x = 3
+		y = 4
+		cost = 10
+		available = { date > 1979.1.1 }
+		prerequisite = { focus = SOV_support_vietnam }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = -0.03
+			army_experience = 30
+		}
+	}
+
+	# ---------------- Rama: Planificacion economica ----------------
+	focus = {
+		id = SOV_five_year_plan
+		icon = GFX_goal_generic_industry
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = SOV_heavy_industry
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 9
+		y = 2
+		cost = 10
+		prerequisite = { focus = SOV_five_year_plan }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SOV_collectivization_ii
+		icon = GFX_goal_generic_manpower
+		x = 11
+		y = 2
+		cost = 10
+		prerequisite = { focus = SOV_five_year_plan }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = SOV_cuban_alliance
+		icon = GFX_goal_generic_flag_purchase
+		x = 9
+		y = 3
+		cost = 10
+		available = { date > 1959.1.1 }
+		prerequisite = { focus = SOV_heavy_industry }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+			set_country_flag = cuba_allied
+		}
+	}
+
+	focus = {
+		id = SOV_destalinization
+		icon = GFX_goal_generic_political_pressure
+		x = 11
+		y = 3
+		cost = 10
+		available = { date > 1953.1.1 }
+		prerequisite = { focus = SOV_collectivization_ii }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = SOV_detente
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 4
+		cost = 10
+		available = { date > 1969.1.1 }
+		prerequisite = { focus = SOV_cuban_alliance focus = SOV_destalinization }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+
+	# ---------------- Rama: Programa nuclear y espacial ----------------
+	focus = {
+		id = SOV_nuclear_program
+		icon = GFX_goal_generic_nuclear_power
+		x = 15
+		y = 1
+		cost = 10
+		prerequisite = { focus = SOV_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = SOV_first_bomb
+		icon = GFX_goal_generic_nuclear_power
+		x = 15
+		y = 2
+		cost = 15
+		available = { date > 1949.1.1 }
+		prerequisite = { focus = SOV_nuclear_program }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = soviet_atomic_bomb
+			country_event = { id = coldwar_flavor.3 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = SOV_hydrogen_bomb
+		icon = GFX_goal_generic_nuclear_power
+		x = 17
+		y = 2
+		cost = 15
+		available = { date > 1953.1.1 }
+		prerequisite = { focus = SOV_first_bomb }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = SOV_missile_program
+		icon = GFX_goal_generic_missile
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = SOV_first_bomb }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = SOV_sputnik
+		icon = GFX_goal_generic_scientist
+		x = 15
+		y = 4
+		cost = 10
+		available = { date > 1957.1.1 }
+		prerequisite = { focus = SOV_missile_program }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			set_country_flag = sputnik_launched
+		}
+	}
+
+	focus = {
+		id = SOV_space_race_gagarin
+		icon = GFX_goal_generic_scientist
+		x = 15
+		y = 5
+		cost = 10
+		available = { date > 1961.1.1 }
+		prerequisite = { focus = SOV_sputnik }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			set_country_flag = first_man_in_space
+		}
+	}
+}

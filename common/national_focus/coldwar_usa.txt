@@ -1,0 +1,291 @@
+focus_tree = {
+	id = coldwar_usa_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = USA
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	# --- Raiz: el arbol solo se activa tras el fin de la Segunda Guerra Mundial ---
+	focus = {
+		id = USA_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = coldwar_era_began
+		}
+	}
+
+	# ---------------- Rama: Plan Marshall y OTAN ----------------
+	focus = {
+		id = USA_marshall_plan
+		icon = GFX_goal_generic_allies_build_infrastructure
+		x = 6
+		y = 1
+		cost = 10
+		prerequisite = { focus = USA_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = marshall_plan_launched
+			country_event = { id = coldwar_flavor.2 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = USA_support_western_europe
+		icon = GFX_goal_generic_allies_build_infrastructure
+		x = 4
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_marshall_plan }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = USA_nato_foundation
+		icon = GFX_goal_generic_united_front
+		x = 6
+		y = 2
+		cost = 10
+		available = { date > 1949.1.1 }
+		prerequisite = { focus = USA_marshall_plan }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = nato_formed
+		}
+	}
+
+	focus = {
+		id = USA_red_scare
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_nato_foundation }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_war_support = 0.03
+			add_stability = -0.02
+		}
+	}
+
+	# ---------------- Rama: Contencion ----------------
+	focus = {
+		id = USA_containment
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = USA_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_support_south_korea
+		icon = GFX_goal_generic_position_troops_defense
+		x = 8
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_containment }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = USA_korean_war
+		icon = GFX_goal_generic_position_troops_defense
+		x = 8
+		y = 3
+		cost = 15
+		available = { date > 1950.1.1 }
+		prerequisite = { focus = USA_support_south_korea }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 40
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = USA_domino_theory
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_containment }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_vietnam_war
+		icon = GFX_goal_generic_position_troops_defense
+		x = 10
+		y = 3
+		cost = 15
+		available = { date > 1955.1.1 }
+		prerequisite = { focus = USA_domino_theory }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 40
+			add_war_support = -0.02
+		}
+	}
+
+	focus = {
+		id = USA_cia_covert_ops
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 2
+		cost = 10
+		prerequisite = { focus = USA_containment }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+			set_country_flag = cia_expanded
+		}
+	}
+
+	focus = {
+		id = USA_bay_of_pigs
+		icon = GFX_goal_generic_position_troops_defense
+		x = 12
+		y = 3
+		cost = 10
+		available = { date > 1961.1.1 }
+		prerequisite = { focus = USA_cia_covert_ops }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_war_support = -0.02
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = USA_detente
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 4
+		cost = 10
+		available = { date > 1969.1.1 }
+		prerequisite = { focus = USA_vietnam_war focus = USA_bay_of_pigs }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = USA_star_wars_sdi
+		icon = GFX_goal_generic_missile
+		x = 12
+		y = 4
+		cost = 15
+		available = { date > 1983.1.1 }
+		prerequisite = { focus = USA_bay_of_pigs }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_political_power = 150
+			set_country_flag = sdi_program_started
+		}
+	}
+
+	# ---------------- Rama: Programa nuclear y espacial ----------------
+	focus = {
+		id = USA_manhattan_legacy
+		icon = GFX_goal_generic_nuclear_power
+		x = 15
+		y = 1
+		cost = 10
+		prerequisite = { focus = USA_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = USA_hydrogen_bomb
+		icon = GFX_goal_generic_nuclear_power
+		x = 15
+		y = 2
+		cost = 15
+		available = { date > 1952.1.1 }
+		prerequisite = { focus = USA_manhattan_legacy }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = USA_icbm_program
+		icon = GFX_goal_generic_missile
+		x = 15
+		y = 3
+		cost = 10
+		prerequisite = { focus = USA_hydrogen_bomb }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 20
+		}
+	}
+
+	focus = {
+		id = USA_apollo_program
+		icon = GFX_goal_generic_scientist
+		x = 15
+		y = 4
+		cost = 15
+		available = { date > 1961.1.1 }
+		prerequisite = { focus = USA_icbm_program }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 150
+			set_country_flag = apollo_program_started
+		}
+	}
+
+	focus = {
+		id = USA_moon_landing
+		icon = GFX_goal_generic_scientist
+		x = 15
+		y = 5
+		cost = 15
+		available = { date > 1969.1.1 }
+		prerequisite = { focus = USA_apollo_program }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.05
+			set_country_flag = moon_landing_achieved
+		}
+	}
+}

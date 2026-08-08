@@ -1,0 +1,52 @@
+add_namespace = coldwar_flavor
+
+# Bloqueo de Berlin (disparado por SOV_berlin_blockade)
+country_event = {
+	id = coldwar_flavor.1
+	title = coldwar_flavor.1.t
+	desc = coldwar_flavor.1.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.1.a
+		add_political_power = 50
+		add_war_support = 0.03
+	}
+	option = {
+		name = coldwar_flavor.1.b
+		add_stability = -0.02
+		add_political_power = 20
+	}
+}
+
+# Reaccion al Plan Marshall (disparado por USA_marshall_plan)
+country_event = {
+	id = coldwar_flavor.2
+	title = coldwar_flavor.2.t
+	desc = coldwar_flavor.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.2.a
+		add_political_power = 50
+		add_stability = 0.02
+	}
+	option = {
+		name = coldwar_flavor.2.b
+		add_political_power = 20
+	}
+}
+
+# Primera bomba atomica sovietica (disparado por SOV_first_bomb)
+country_event = {
+	id = coldwar_flavor.3
+	title = coldwar_flavor.3.t
+	desc = coldwar_flavor.3.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.3.a
+		add_political_power = 100
+		army_experience = 20
+	}
+}

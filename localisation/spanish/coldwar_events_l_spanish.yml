@@ -1,0 +1,14 @@
+l_spanish:
+ coldwar_flavor.1.t: "El Bloqueo de Berlin"
+ coldwar_flavor.1.d: "Las fuerzas sovieticas han cortado todo acceso terrestre y ferroviario a Berlin Occidental. Los Aliados occidentales deben decidir como responder a esta prueba de voluntades."
+ coldwar_flavor.1.a: "Mantenerse firmes"
+ coldwar_flavor.1.b: "Buscar un acuerdo negociado"
+
+ coldwar_flavor.2.t: "Reaccion al Plan Marshall"
+ coldwar_flavor.2.d: "Miles de millones de dolares en ayuda fluyen hacia Europa Occidental. El plan ya esta transformando la politica y la economia del continente."
+ coldwar_flavor.2.a: "Publicitar el exito del plan"
+ coldwar_flavor.2.b: "Mantener un perfil discreto"
+
+ coldwar_flavor.3.t: "Primer Relampago"
+ coldwar_flavor.3.d: "En las estepas de Kazajistan, la Union Sovietica ha probado con exito su primer dispositivo atomico, acabando con el monopolio nuclear estadounidense."
+ coldwar_flavor.3.a: "Celebrar este logro historico"
