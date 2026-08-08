@@ -50,3 +50,54 @@ country_event = {
 		army_experience = 20
 	}
 }
+
+# Crisis de los misiles de Cuba (disparado por CUB_missile_crisis)
+country_event = {
+	id = coldwar_flavor.4
+	title = coldwar_flavor.4.t
+	desc = coldwar_flavor.4.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.4.a
+		add_war_support = 0.05
+		add_political_power = 50
+	}
+	option = {
+		name = coldwar_flavor.4.b
+		add_stability = 0.03
+		add_political_power = 20
+	}
+}
+
+# Golpe de Estado en Chile (disparado por CHL_military_coup)
+country_event = {
+	id = coldwar_flavor.5
+	title = coldwar_flavor.5.t
+	desc = coldwar_flavor.5.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.5.a
+		add_political_power = 60
+		add_stability = -0.02
+	}
+}
+
+# Tension por las Malvinas (disparado por ARG_falklands_tension)
+country_event = {
+	id = coldwar_flavor.6
+	title = coldwar_flavor.6.t
+	desc = coldwar_flavor.6.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.6.a
+		add_war_support = 0.05
+		army_experience = 20
+	}
+	option = {
+		name = coldwar_flavor.6.b
+		add_stability = 0.03
+	}
+}

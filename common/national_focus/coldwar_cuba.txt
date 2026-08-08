@@ -1,0 +1,176 @@
+focus_tree = {
+	id = coldwar_cuba_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = CUB
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	focus = {
+		id = CUB_revolution_triumphs
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1959.1.1
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = cuban_revolution_triumphed
+		}
+	}
+
+	# ---------------- Rama: Reforma interna ----------------
+	focus = {
+		id = CUB_agrarian_reform
+		icon = GFX_goal_generic_manpower
+		x = 6
+		y = 1
+		cost = 10
+		prerequisite = { focus = CUB_revolution_triumphs }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = CUB_nationalize_industry
+		icon = GFX_goal_generic_industry
+		x = 6
+		y = 2
+		cost = 10
+		prerequisite = { focus = CUB_agrarian_reform }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+			set_country_flag = cuban_industry_nationalized
+		}
+	}
+
+	focus = {
+		id = CUB_healthcare_education_campaign
+		icon = GFX_goal_generic_scientist
+		x = 4
+		y = 3
+		cost = 10
+		prerequisite = { focus = CUB_nationalize_industry }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+			add_war_support = 0.02
+		}
+	}
+
+	# ---------------- Rama: Alineamiento sovietico ----------------
+	focus = {
+		id = CUB_soviet_alignment
+		icon = GFX_goal_generic_united_front
+		x = 10
+		y = 1
+		cost = 10
+		available = { date > 1960.1.1 }
+		prerequisite = { focus = CUB_revolution_triumphs }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+			set_country_flag = cuba_soviet_aligned
+		}
+	}
+
+	focus = {
+		id = CUB_missile_crisis
+		icon = GFX_goal_generic_missile
+		x = 10
+		y = 2
+		cost = 10
+		available = { date > 1962.1.1 }
+		prerequisite = { focus = CUB_soviet_alignment }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_war_support = 0.05
+			country_event = { id = coldwar_flavor.4 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = CUB_export_revolution
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 10
+		y = 3
+		cost = 10
+		available = { date > 1965.1.1 }
+		prerequisite = { focus = CUB_missile_crisis }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = CUB_support_sandinistas
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 10
+		y = 4
+		cost = 10
+		available = { date > 1979.1.1 }
+		prerequisite = { focus = CUB_export_revolution }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			set_country_flag = cuba_supports_sandinistas
+		}
+	}
+
+	# ---------------- Rama: Defensa ----------------
+	focus = {
+		id = CUB_bay_of_pigs_defense
+		icon = GFX_goal_generic_position_troops_defense
+		x = 14
+		y = 1
+		cost = 10
+		available = { date > 1961.1.1 }
+		prerequisite = { focus = CUB_revolution_triumphs }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 20
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = CUB_militarize_population
+		icon = GFX_goal_generic_manpower
+		x = 14
+		y = 2
+		cost = 10
+		prerequisite = { focus = CUB_bay_of_pigs_defense }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 15
+		}
+	}
+
+	focus = {
+		id = CUB_soviet_military_aid
+		icon = GFX_goal_generic_position_troops_defense
+		x = 14
+		y = 3
+		cost = 10
+		prerequisite = { focus = CUB_militarize_population }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			army_experience = 25
+			add_political_power = 40
+		}
+	}
+}

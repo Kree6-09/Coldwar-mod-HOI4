@@ -12,3 +12,17 @@ l_english:
  coldwar_flavor.3.t: "First Lightning"
  coldwar_flavor.3.d: "In the steppes of Kazakhstan, the Soviet Union has successfully tested its first atomic device, ending the American nuclear monopoly."
  coldwar_flavor.3.a: "Celebrate this historic achievement"
+
+ coldwar_flavor.4.t: "Thirteen Days"
+ coldwar_flavor.4.d: "American reconnaissance has spotted Soviet missile installations on Cuban soil. The world holds its breath as both superpowers stand on the brink of nuclear war."
+ coldwar_flavor.4.a: "Stand firm alongside Moscow"
+ coldwar_flavor.4.b: "Support a negotiated withdrawal"
+
+ coldwar_flavor.5.t: "The Bombing of La Moneda"
+ coldwar_flavor.5.d: "Chilean Air Force jets have bombed the presidential palace. The armed forces have seized power, ending decades of democratic tradition."
+ coldwar_flavor.5.a: "The junta consolidates control"
+
+ coldwar_flavor.6.t: "The South Atlantic Dispute"
+ coldwar_flavor.6.d: "Decades of diplomatic frustration over the Falkland Islands have brought the possibility of armed conflict with Britain into public debate."
+ coldwar_flavor.6.a: "Prepare the armed forces"
+ coldwar_flavor.6.b: "Continue seeking a diplomatic solution"

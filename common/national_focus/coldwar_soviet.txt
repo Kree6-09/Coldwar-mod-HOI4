@@ -194,7 +194,8 @@ focus_tree = {
 		y = 4
 		cost = 10
 		available = { date > 1969.1.1 }
-		prerequisite = { focus = SOV_cuban_alliance focus = SOV_destalinization }
+		prerequisite = { focus = SOV_cuban_alliance }
+		prerequisite = { focus = SOV_destalinization }
 		ai_will_do = { factor = 5 }
 		completion_reward = {
 			add_stability = 0.05

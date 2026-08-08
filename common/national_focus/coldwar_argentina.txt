@@ -1,0 +1,157 @@
+focus_tree = {
+	id = coldwar_argentina_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = ARG
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	focus = {
+		id = ARG_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = ARG_peronist_legacy
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = ARG_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+			set_country_flag = peronist_legacy
+		}
+	}
+
+	focus = {
+		id = ARG_political_instability
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = ARG_peronist_legacy }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = -0.02
+		}
+	}
+
+	focus = {
+		id = ARG_proceso_coup
+		icon = GFX_goal_generic_position_troops_defense
+		x = 10
+		y = 3
+		cost = 10
+		available = { date > 1976.3.24 }
+		prerequisite = { focus = ARG_political_instability }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_stability = -0.05
+			set_country_flag = proceso_reorganizacion_nacional
+		}
+	}
+
+	focus = {
+		id = ARG_dirty_war
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 4
+		cost = 10
+		prerequisite = { focus = ARG_proceso_coup }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.05
+		}
+	}
+
+	focus = {
+		id = ARG_operation_condor_argentina
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 8
+		y = 5
+		cost = 10
+		available = { date > 1976.1.1 }
+		prerequisite = { focus = ARG_dirty_war }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			set_country_flag = operation_condor_member
+		}
+	}
+
+	focus = {
+		id = ARG_economic_crisis
+		icon = GFX_goal_generic_industry
+		x = 12
+		y = 5
+		cost = 10
+		available = { date > 1980.1.1 }
+		prerequisite = { focus = ARG_dirty_war }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.03
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = ARG_falklands_tension
+		icon = GFX_goal_generic_missile
+		x = 10
+		y = 6
+		cost = 10
+		available = { date > 1982.1.1 }
+		prerequisite = { focus = ARG_operation_condor_argentina }
+		prerequisite = { focus = ARG_economic_crisis }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_war_support = 0.1
+			army_experience = 20
+			set_country_flag = falklands_war_started
+			country_event = { id = coldwar_flavor.6 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = ARG_return_to_democracy
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 7
+		cost = 10
+		available = { date > 1983.1.1 }
+		prerequisite = { focus = ARG_falklands_tension }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			add_stability = 0.1
+			set_country_flag = argentina_democracy_restored
+		}
+	}
+}

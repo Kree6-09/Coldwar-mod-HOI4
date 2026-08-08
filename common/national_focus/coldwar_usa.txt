@@ -194,7 +194,8 @@ focus_tree = {
 		y = 4
 		cost = 10
 		available = { date > 1969.1.1 }
-		prerequisite = { focus = USA_vietnam_war focus = USA_bay_of_pigs }
+		prerequisite = { focus = USA_vietnam_war }
+		prerequisite = { focus = USA_bay_of_pigs }
 		ai_will_do = { factor = 5 }
 		completion_reward = {
 			add_stability = 0.05

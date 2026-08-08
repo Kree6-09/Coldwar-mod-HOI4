@@ -1,0 +1,155 @@
+bookmarks = {
+
+	# ------------------------------------------------------------------
+	# 1945 - El amanecer de la Guerra Fria
+	# ------------------------------------------------------------------
+	bookmark = {
+		name = coldwar_bookmark_1945.t
+		desc = coldwar_bookmark_1945.d
+		date = 1945.5.9.12
+		picture = "GFX_select_date_1936"
+		default_country = "USA"
+		default = yes
+
+		country = { tag = USA ideology = democratic ideas = { } }
+		country = { tag = SOV ideology = communism ideas = { } }
+		country = { tag = CUB ideology = democratic ideas = { } }
+		country = { tag = CHL ideology = democratic ideas = { } }
+		country = { tag = ARG ideology = neutrality ideas = { } }
+		country = { tag = BRA ideology = democratic ideas = { } }
+		country = { tag = NIC ideology = neutrality ideas = { } }
+
+		history = {
+			SOV = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+			ARG = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			NIC = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# 1970 - Distension y revolucion en America Latina
+	# ------------------------------------------------------------------
+	bookmark = {
+		name = coldwar_bookmark_1970.t
+		desc = coldwar_bookmark_1970.d
+		date = 1970.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "USA"
+		default = no
+
+		country = { tag = USA ideology = democratic ideas = { } }
+		country = { tag = SOV ideology = communism ideas = { } }
+		country = { tag = CUB ideology = communism ideas = { } }
+		country = { tag = CHL ideology = democratic ideas = { } }
+		country = { tag = ARG ideology = neutrality ideas = { } }
+		country = { tag = BRA ideology = neutrality ideas = { } }
+		country = { tag = NIC ideology = neutrality ideas = { } }
+
+		history = {
+			SOV = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+			CUB = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+			ARG = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			BRA = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			NIC = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+		}
+	}
+
+	# ------------------------------------------------------------------
+	# 1980 - La decada perdida
+	# ------------------------------------------------------------------
+	bookmark = {
+		name = coldwar_bookmark_1980.t
+		desc = coldwar_bookmark_1980.d
+		date = 1980.1.1.12
+		picture = "GFX_select_date_1936"
+		default_country = "USA"
+		default = no
+
+		country = { tag = USA ideology = democratic ideas = { } }
+		country = { tag = SOV ideology = communism ideas = { } }
+		country = { tag = CUB ideology = communism ideas = { } }
+		country = { tag = CHL ideology = neutrality ideas = { } }
+		country = { tag = ARG ideology = neutrality ideas = { } }
+		country = { tag = BRA ideology = neutrality ideas = { } }
+		country = { tag = NIC ideology = communism ideas = { } }
+
+		history = {
+			SOV = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+			CUB = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+			CHL = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			ARG = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			BRA = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+			NIC = {
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+			}
+		}
+	}
+}

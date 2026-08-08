@@ -12,3 +12,17 @@ l_spanish:
  coldwar_flavor.3.t: "Primer Relampago"
  coldwar_flavor.3.d: "En las estepas de Kazajistan, la Union Sovietica ha probado con exito su primer dispositivo atomico, acabando con el monopolio nuclear estadounidense."
  coldwar_flavor.3.a: "Celebrar este logro historico"
+
+ coldwar_flavor.4.t: "Trece Dias"
+ coldwar_flavor.4.d: "El reconocimiento aereo estadounidense ha detectado instalaciones de misiles sovieticos en suelo cubano. El mundo contiene la respiracion mientras ambas superpotencias estan al borde de la guerra nuclear."
+ coldwar_flavor.4.a: "Mantenerse firmes junto a Moscu"
+ coldwar_flavor.4.b: "Apoyar una retirada negociada"
+
+ coldwar_flavor.5.t: "El Bombardeo de La Moneda"
+ coldwar_flavor.5.d: "Aviones de la Fuerza Aerea chilena han bombardeado el palacio presidencial. Las fuerzas armadas han tomado el poder, poniendo fin a decadas de tradicion democratica."
+ coldwar_flavor.5.a: "La junta consolida el control"
+
+ coldwar_flavor.6.t: "La Disputa del Atlantico Sur"
+ coldwar_flavor.6.d: "Decadas de frustracion diplomatica por las Islas Malvinas han puesto sobre la mesa la posibilidad de un conflicto armado con Gran Bretana."
+ coldwar_flavor.6.a: "Preparar a las fuerzas armadas"
+ coldwar_flavor.6.b: "Seguir buscando una solucion diplomatica"

@@ -1,0 +1,183 @@
+focus_tree = {
+	id = coldwar_chile_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = CHL
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	focus = {
+		id = CHL_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = CHL_popular_unity_formed
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 1
+		cost = 10
+		available = { date > 1969.1.1 }
+		prerequisite = { focus = CHL_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			set_country_flag = popular_unity_formed
+		}
+	}
+
+	focus = {
+		id = CHL_allende_elected
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 2
+		cost = 10
+		available = { date > 1970.9.4 }
+		prerequisite = { focus = CHL_popular_unity_formed }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = allende_elected
+		}
+	}
+
+	focus = {
+		id = CHL_nationalize_copper
+		icon = GFX_goal_generic_industry
+		x = 10
+		y = 3
+		cost = 10
+		available = { date > 1971.1.1 }
+		prerequisite = { focus = CHL_allende_elected }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+			set_country_flag = copper_nationalized
+		}
+	}
+
+	# ---------------- Bifurcacion: Profundizar la via socialista ----------------
+	focus = {
+		id = CHL_deepen_socialism
+		icon = GFX_goal_generic_united_front
+		x = 6
+		y = 4
+		cost = 10
+		available = { date > 1972.1.1 }
+		prerequisite = { focus = CHL_nationalize_copper }
+		mutually_exclusive = { focus = CHL_military_coup }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			add_stability = 0.05
+			set_country_flag = socialist_path_chosen
+		}
+	}
+
+	focus = {
+		id = CHL_land_reform_completion
+		icon = GFX_goal_generic_manpower
+		x = 6
+		y = 5
+		cost = 10
+		prerequisite = { focus = CHL_deepen_socialism }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = CHL_socialist_consolidation
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 6
+		cost = 10
+		prerequisite = { focus = CHL_land_reform_completion }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.05
+		}
+	}
+
+	# ---------------- Bifurcacion: Golpe militar ----------------
+	focus = {
+		id = CHL_military_coup
+		icon = GFX_goal_generic_position_troops_defense
+		x = 14
+		y = 4
+		cost = 10
+		available = { date > 1973.9.11 }
+		prerequisite = { focus = CHL_nationalize_copper }
+		mutually_exclusive = { focus = CHL_deepen_socialism }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_stability = -0.05
+			set_country_flag = pinochet_regime
+			country_event = { id = coldwar_flavor.5 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = CHL_dina_repression
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 5
+		cost = 10
+		prerequisite = { focus = CHL_military_coup }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.05
+			add_stability = -0.03
+		}
+	}
+
+	focus = {
+		id = CHL_chicago_boys_reforms
+		icon = GFX_goal_generic_industry
+		x = 14
+		y = 6
+		cost = 10
+		prerequisite = { focus = CHL_dina_repression }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+		}
+	}
+
+	focus = {
+		id = CHL_operation_condor_chile
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 14
+		y = 7
+		cost = 10
+		available = { date > 1975.1.1 }
+		prerequisite = { focus = CHL_chicago_boys_reforms }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			set_country_flag = operation_condor_member
+		}
+	}
+}
