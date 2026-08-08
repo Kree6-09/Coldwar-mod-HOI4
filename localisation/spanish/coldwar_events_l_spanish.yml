@@ -26,3 +26,11 @@ l_spanish:
  coldwar_flavor.6.d: "Decadas de frustracion diplomatica por las Islas Malvinas han puesto sobre la mesa la posibilidad de un conflicto armado con Gran Bretana."
  coldwar_flavor.6.a: "Preparar a las fuerzas armadas"
  coldwar_flavor.6.b: "Seguir buscando una solucion diplomatica"
+
+ coldwar_flavor.7.t: "Cae Managua"
+ coldwar_flavor.7.d: "Los combatientes sandinistas han entrado en Managua mientras los ultimos miembros del regimen somocista huyen del pais. Decadas de gobierno dinastico llegan a su fin."
+ coldwar_flavor.7.a: "Comenzar a construir el nuevo Estado revolucionario"
+
+ coldwar_flavor.8.t: "Tanques en Brasilia"
+ coldwar_flavor.8.d: "Las fuerzas armadas se han movilizado contra el presidente Goulart, quien ha huido al exilio. Un gobierno militar controla ahora el pais."
+ coldwar_flavor.8.a: "Las fuerzas armadas toman el control"

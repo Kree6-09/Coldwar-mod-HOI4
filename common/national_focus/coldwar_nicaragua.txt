@@ -1,0 +1,210 @@
+focus_tree = {
+	id = coldwar_nicaragua_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = NIC
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	focus = {
+		id = NIC_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = NIC_somoza_dynasty
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = NIC_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+			set_country_flag = somoza_dynasty_rule
+		}
+	}
+
+	focus = {
+		id = NIC_national_guard_repression
+		icon = GFX_goal_generic_position_troops_defense
+		x = 10
+		y = 2
+		cost = 10
+		prerequisite = { focus = NIC_somoza_dynasty }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.03
+			add_stability = -0.02
+		}
+	}
+
+	focus = {
+		id = NIC_earthquake_corruption
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 3
+		cost = 10
+		available = { date > 1972.12.23 }
+		prerequisite = { focus = NIC_national_guard_repression }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.05
+			set_country_flag = managua_earthquake_corruption
+		}
+	}
+
+	# ---------------- Bifurcacion: Aplastar a la guerrilla ----------------
+	focus = {
+		id = NIC_crush_the_guerrillas
+		icon = GFX_goal_generic_position_troops_defense
+		x = 6
+		y = 4
+		cost = 10
+		prerequisite = { focus = NIC_earthquake_corruption }
+		mutually_exclusive = { focus = NIC_sandinista_revolution_triumphs }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			army_experience = 20
+			add_war_support = 0.03
+		}
+	}
+
+	focus = {
+		id = NIC_continued_repression
+		icon = GFX_goal_generic_political_pressure
+		x = 6
+		y = 5
+		cost = 10
+		prerequisite = { focus = NIC_crush_the_guerrillas }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.03
+		}
+	}
+
+	focus = {
+		id = NIC_us_support_somoza
+		icon = GFX_goal_generic_united_front
+		x = 6
+		y = 6
+		cost = 10
+		prerequisite = { focus = NIC_continued_repression }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			army_experience = 15
+		}
+	}
+
+	# ---------------- Bifurcacion: Triunfo de la revolucion sandinista ----------------
+	focus = {
+		id = NIC_sandinista_revolution_triumphs
+		icon = GFX_goal_generic_national_unity
+		x = 14
+		y = 4
+		cost = 10
+		available = { date > 1979.7.19 }
+		prerequisite = { focus = NIC_earthquake_corruption }
+		mutually_exclusive = { focus = NIC_crush_the_guerrillas }
+		ai_will_do = { factor = 5 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_political_power = 100
+			set_country_flag = sandinista_revolution_triumphed
+			country_event = { id = coldwar_flavor.7 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = NIC_national_reconstruction_junta
+		icon = GFX_goal_generic_political_pressure
+		x = 14
+		y = 5
+		cost = 10
+		prerequisite = { focus = NIC_sandinista_revolution_triumphs }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+		}
+	}
+
+	focus = {
+		id = NIC_literacy_campaign
+		icon = GFX_goal_generic_scientist
+		x = 12
+		y = 6
+		cost = 10
+		prerequisite = { focus = NIC_national_reconstruction_junta }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = NIC_land_reform_nicaragua
+		icon = GFX_goal_generic_manpower
+		x = 16
+		y = 6
+		cost = 10
+		prerequisite = { focus = NIC_national_reconstruction_junta }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = NIC_contra_war
+		icon = GFX_goal_generic_position_troops_defense
+		x = 14
+		y = 7
+		cost = 10
+		available = { date > 1981.1.1 }
+		prerequisite = { focus = NIC_literacy_campaign }
+		prerequisite = { focus = NIC_land_reform_nicaragua }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 25
+			set_country_flag = contra_war_ongoing
+		}
+	}
+
+	focus = {
+		id = NIC_esquipulas_peace
+		icon = GFX_goal_generic_propaganda
+		x = 14
+		y = 8
+		cost = 10
+		available = { date > 1987.1.1 }
+		prerequisite = { focus = NIC_contra_war }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_stability = 0.08
+			add_political_power = 80
+			set_country_flag = esquipulas_peace_signed
+		}
+	}
+}

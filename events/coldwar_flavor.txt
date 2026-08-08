@@ -101,3 +101,31 @@ country_event = {
 		add_stability = 0.03
 	}
 }
+
+# Triunfo de la revolucion sandinista (disparado por NIC_sandinista_revolution_triumphs)
+country_event = {
+	id = coldwar_flavor.7
+	title = coldwar_flavor.7.t
+	desc = coldwar_flavor.7.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.7.a
+		add_political_power = 60
+		add_stability = 0.03
+	}
+}
+
+# Golpe militar en Brasil (disparado por BRA_military_coup_1964)
+country_event = {
+	id = coldwar_flavor.8
+	title = coldwar_flavor.8.t
+	desc = coldwar_flavor.8.d
+	is_triggered_only = yes
+
+	option = {
+		name = coldwar_flavor.8.a
+		add_political_power = 60
+		add_stability = -0.02
+	}
+}

@@ -26,3 +26,11 @@ l_english:
  coldwar_flavor.6.d: "Decades of diplomatic frustration over the Falkland Islands have brought the possibility of armed conflict with Britain into public debate."
  coldwar_flavor.6.a: "Prepare the armed forces"
  coldwar_flavor.6.b: "Continue seeking a diplomatic solution"
+
+ coldwar_flavor.7.t: "Managua Falls"
+ coldwar_flavor.7.d: "Sandinista fighters have entered Managua as the last members of the Somoza regime flee the country. Decades of dynastic rule have come to an end."
+ coldwar_flavor.7.a: "Begin building the new revolutionary state"
+
+ coldwar_flavor.8.t: "Tanks in Brasília"
+ coldwar_flavor.8.d: "The armed forces have moved against President Goulart, who has fled into exile. A military government now controls the country."
+ coldwar_flavor.8.a: "The armed forces take control"

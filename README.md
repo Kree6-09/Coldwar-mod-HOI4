@@ -3,12 +3,14 @@
 Un mod para **Hearts of Iron IV** centrado en la Guerra Fría, con foco
 especial en **América Latina**. Añade árboles de decisiones (focus trees)
 alternativos para **Estados Unidos**, la **Unión Soviética**, **Cuba**,
-**Chile** y **Argentina**, tres fechas de inicio alternativas (1945, 1970 y
-1980), y eventos narrativos ligados a los grandes hitos de la época: el
-Plan Marshall, la OTAN, el Pacto de Varsovia, la Revolución Cubana, la
-Crisis de los Misiles, la vía chilena al socialismo y el golpe de 1973, el
-Proceso de Reorganización Nacional y la Guerra Sucia en Argentina, y la
-tensión por las Malvinas.
+**Chile**, **Argentina**, **Nicaragua** y **Brasil**, tres fechas de inicio
+alternativas (1945, 1970 y 1980), y eventos narrativos ligados a los
+grandes hitos de la época: el Plan Marshall, la OTAN, el Pacto de Varsovia,
+la Revolución Cubana, la Crisis de los Misiles, la vía chilena al
+socialismo y el golpe de 1973, el Proceso de Reorganización Nacional y la
+Guerra Sucia en Argentina, la tensión por las Malvinas, la Revolución
+Sandinista y la Guerra de la Contra en Nicaragua, y el golpe militar y el
+"Milagro Económico" en Brasil.
 
 ## Contenido actual
 
@@ -49,6 +51,16 @@ partida "ligero", no una recreación histórica exhaustiva de 1970 u 1980.
   política, golpe de 1976 (Proceso de Reorganización Nacional), Guerra
   Sucia, Operación Cóndor, crisis económica, tensión por las Malvinas y
   retorno a la democracia en 1983.
+- **`coldwar_nicaragua.txt`** (Nicaragua) — Dinastía Somoza, represión de la
+  Guardia Nacional, terremoto de Managua y corrupción, y una **bifurcación
+  histórica**: aplastar a la guerrilla con apoyo estadounidense o el
+  triunfo de la Revolución Sandinista en 1979 (Junta de Reconstrucción,
+  Cruzada de Alfabetización, reforma agraria, Guerra de la Contra,
+  Acuerdos de Esquipulas).
+- **`coldwar_brazil.txt`** (Brasil) — Reformas de Goulart, golpe militar de
+  1964, Acta Institucional N.º 5, censura de prensa, Operación Cóndor,
+  Milagro Económico, colonización de la Amazonía, programa nuclear
+  independiente, apertura política y retorno a la democracia en 1985.
 
 Todos los árboles solo reemplazan el árbol genérico del país indicado
 (mediante el bloque `country = { factor ... tag = ... }`); el resto de
@@ -57,8 +69,9 @@ naciones conserva su árbol de decisiones vanilla o el de otros mods.
 ### Eventos (`events/coldwar_flavor.txt`)
 
 Bloqueo de Berlín, reacción al Plan Marshall, primera bomba atómica
-soviética, Crisis de los Misiles de Cuba, golpe de Estado en Chile (bombardeo
-de La Moneda), y tensión por las Malvinas.
+soviética, Crisis de los Misiles de Cuba, golpe de Estado en Chile
+(bombardeo de La Moneda), tensión por las Malvinas, triunfo de la
+Revolución Sandinista y golpe militar en Brasil.
 
 ### Localización
 
@@ -81,11 +94,11 @@ focos, eventos y bookmarks en ambos idiomas.
 
 - **Nuevos países**: crea un archivo en `common/national_focus/` siguiendo
   el mismo patrón (`country = { factor = 0 modifier = { add = 15 tag = XXX } }`,
-  `default = no`) para dar a otra nación (Nicaragua, Brasil, México, Reino
-  Unido, Francia, China, Alemania Oriental/Occidental...) su propio árbol
-  de decisiones. En `common/bookmarks/coldwar_bookmarks.txt` ya hay entradas
-  de `country = { tag = BRA ... }` y `country = { tag = NIC ... }` listas
-  para conectarles un árbol propio cuando se cree.
+  `default = no`) para dar a otra nación (México, Bolivia, Uruguay,
+  El Salvador, Reino Unido, Francia, China, Alemania Oriental/Occidental...)
+  su propio árbol de decisiones, y añade su `country = { tag = XXX ... }`
+  en `common/bookmarks/coldwar_bookmarks.txt` para que aparezca con la
+  ideología correspondiente en cada fecha de inicio.
 - **Eventos**: añade nuevos `country_event` en `events/` y engánchalos a un
   foco mediante `completion_reward = { country_event = { id = ... } }`.
 - **Localización**: cada clave nueva (`id_del_foco` y `id_del_foco_desc`,
@@ -96,13 +109,11 @@ focos, eventos y bookmarks en ambos idiomas.
   gráficos adicionales. Si quieres iconos personalizados, añade tus `.dds`
   en `gfx/interface/goals/` y regístralos en un archivo `.gfx` en
   `interface/`.
-- **Fecha de inicio alternativa**: para arrancar la partida directamente en
-  1945 o 1949 en lugar de 1936, se puede añadir un `bookmark` personalizado
-  en `common/bookmarks/` (no incluido todavía en este esqueleto).
 
 ## Aviso
 
 Este repositorio es una base funcional y extensible, no un mod histórico
-completo: cubre dos países con ramas temáticas representativas de la Guerra
-Fría. Está pensado como punto de partida para seguir añadiendo naciones,
-eventos, decisiones (`decisions`), y contenido gráfico.
+completo: cubre siete países con ramas temáticas representativas de la
+Guerra Fría, con énfasis en América Latina. Está pensado como punto de
+partida para seguir añadiendo naciones, eventos, decisiones (`decisions`),
+y contenido gráfico.

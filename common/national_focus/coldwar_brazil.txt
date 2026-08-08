@@ -1,0 +1,199 @@
+focus_tree = {
+	id = coldwar_brazil_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 15
+			tag = BRA
+		}
+	}
+
+	default = no
+
+	continuous_focus_position = { x = 200 y = 50 }
+
+	focus = {
+		id = BRA_coldwar_root
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 0
+		cost = 5
+		available = {
+			date > 1945.5.8
+		}
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = BRA_goulart_reforms
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 1
+		cost = 10
+		prerequisite = { focus = BRA_coldwar_root }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = BRA_military_coup_1964
+		icon = GFX_goal_generic_position_troops_defense
+		x = 10
+		y = 2
+		cost = 10
+		available = { date > 1964.3.31 }
+		prerequisite = { focus = BRA_goulart_reforms }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_stability = -0.03
+			set_country_flag = brazilian_military_regime
+			country_event = { id = coldwar_flavor.8 hours = 6 }
+		}
+	}
+
+	focus = {
+		id = BRA_institutional_act_5
+		icon = GFX_goal_generic_political_pressure
+		x = 10
+		y = 3
+		cost = 10
+		available = { date > 1968.12.13 }
+		prerequisite = { focus = BRA_military_coup_1964 }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_war_support = 0.03
+			add_stability = -0.03
+		}
+	}
+
+	# ---------------- Rama: Represion y Condor ----------------
+	focus = {
+		id = BRA_press_censorship
+		icon = GFX_goal_generic_propaganda
+		x = 8
+		y = 4
+		cost = 10
+		prerequisite = { focus = BRA_institutional_act_5 }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+
+	focus = {
+		id = BRA_operation_condor_brazil
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 8
+		y = 5
+		cost = 10
+		available = { date > 1975.1.1 }
+		prerequisite = { focus = BRA_press_censorship }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 60
+			set_country_flag = operation_condor_member
+		}
+	}
+
+	# ---------------- Rama: Milagro economico ----------------
+	focus = {
+		id = BRA_economic_miracle
+		icon = GFX_goal_generic_industry
+		x = 12
+		y = 4
+		cost = 10
+		prerequisite = { focus = BRA_institutional_act_5 }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_political_power = 80
+		}
+	}
+
+	focus = {
+		id = BRA_amazon_colonization
+		icon = GFX_goal_generic_manpower
+		x = 12
+		y = 5
+		cost = 10
+		prerequisite = { focus = BRA_economic_miracle }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = 0.03
+		}
+	}
+
+	focus = {
+		id = BRA_nuclear_program_brazil
+		icon = GFX_goal_generic_nuclear_power
+		x = 14
+		y = 6
+		cost = 10
+		prerequisite = { focus = BRA_amazon_colonization }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_political_power = 100
+			set_country_flag = brazilian_nuclear_program
+		}
+	}
+
+	# ---------------- Apertura y regreso a la democracia ----------------
+	focus = {
+		id = BRA_political_opening
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 6
+		cost = 10
+		available = { date > 1974.1.1 }
+		prerequisite = { focus = BRA_operation_condor_brazil }
+		prerequisite = { focus = BRA_economic_miracle }
+		ai_will_do = { factor = 8 }
+		completion_reward = {
+			add_stability = 0.05
+			set_country_flag = brazil_abertura_politica
+		}
+	}
+
+	focus = {
+		id = BRA_debt_crisis
+		icon = GFX_goal_generic_industry
+		x = 10
+		y = 7
+		cost = 10
+		available = { date > 1982.1.1 }
+		prerequisite = { focus = BRA_political_opening }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			add_stability = -0.03
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = BRA_return_to_democracy
+		icon = GFX_goal_generic_national_unity
+		x = 10
+		y = 8
+		cost = 10
+		available = { date > 1985.1.1 }
+		prerequisite = { focus = BRA_debt_crisis }
+		ai_will_do = { factor = 10 }
+		completion_reward = {
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			add_stability = 0.1
+			set_country_flag = brazil_democracy_restored
+		}
+	}
+}
